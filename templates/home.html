@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} home {% endblock title %}
+{% block body %}
+
+<h3>Welcome, Today vaccine slot</h3><br>
+<form action="" method="GET">
+  <input type="text" name='pincode' placeholder="enter the pincode" required>
+  <input type="text" name='date' placeholder="dd-mm-yyyy" required>
+  <button type="submit">search</button>
+</form><br>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>pincode</th>
+      <th>state</th>
+      <th>District</th>
+      <th>dose1</th>
+      <th>dose2</th>
+
+      <th>all age</th>
+      <th>vaccint type</th>
+      <th>date</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+   
+    {% for datas in data %}
+  
+    <tr class="table-danger">
+      <th>{{datas.name}}</th>
+      <th>{{datas.pincode}}</th>
+      <td>{{datas.state_name}}</td>
+      <td>{{datas.district_name}}</td>
+      <td>{{datas.available_capacity_dose1}}</td>
+      <td>{{datas.available_capacity_dose2}}</td>
+      <td>{{datas.allow_all_age}}</td>
+      <td>{{datas.vaccine}}</td>
+      <td>{{datas.date}}</td>
+    </tr>
+    {% endfor %}
+   
+   
+  </tbody>
+</table>
+{% endblock body %}
